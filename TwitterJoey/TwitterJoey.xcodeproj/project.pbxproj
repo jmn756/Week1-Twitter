@@ -18,6 +18,7 @@
 		B0DDACA61B71169C00CD9A04 /* TweetJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDACA51B71169C00CD9A04 /* TweetJSONParser.swift */; };
 		B0DDACA81B726C5E00CD9A04 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDACA71B726C5E00CD9A04 /* LoginService.swift */; };
 		B0DDACAA1B7271F500CD9A04 /* TwitterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDACA91B7271F500CD9A04 /* TwitterService.swift */; };
+		B0DDACAC1B72AB8700CD9A04 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDACAB1B72AB8700CD9A04 /* TweetCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		B0DDACA51B71169C00CD9A04 /* TweetJSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetJSONParser.swift; sourceTree = "<group>"; };
 		B0DDACA71B726C5E00CD9A04 /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		B0DDACA91B7271F500CD9A04 /* TwitterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterService.swift; sourceTree = "<group>"; };
+		B0DDACAB1B72AB8700CD9A04 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				B00DE09D1B7003AF007EE9E8 /* ViewController.swift */,
+				B0DDACAB1B72AB8700CD9A04 /* TweetCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0DDACA61B71169C00CD9A04 /* TweetJSONParser.swift in Sources */,
+				B0DDACAC1B72AB8700CD9A04 /* TweetCell.swift in Sources */,
 				B00DE0BC1B7003C9007EE9E8 /* Tweet.swift in Sources */,
 				B0DDACA81B726C5E00CD9A04 /* LoginService.swift in Sources */,
 				B00DE09E1B7003AF007EE9E8 /* ViewController.swift in Sources */,
