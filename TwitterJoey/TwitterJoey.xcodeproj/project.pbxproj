@@ -16,6 +16,8 @@
 		B00DE0BC1B7003C9007EE9E8 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00DE0BB1B7003C9007EE9E8 /* Tweet.swift */; };
 		B0DDACA41B71159700CD9A04 /* tweet.json in Resources */ = {isa = PBXBuildFile; fileRef = B0DDACA31B71159700CD9A04 /* tweet.json */; };
 		B0DDACA61B71169C00CD9A04 /* TweetJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDACA51B71169C00CD9A04 /* TweetJSONParser.swift */; };
+		B0DDACA81B726C5E00CD9A04 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDACA71B726C5E00CD9A04 /* LoginService.swift */; };
+		B0DDACAA1B7271F500CD9A04 /* TwitterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDACA91B7271F500CD9A04 /* TwitterService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		B00DE0BB1B7003C9007EE9E8 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tweet.swift; path = ../Tweet.swift; sourceTree = "<group>"; };
 		B0DDACA31B71159700CD9A04 /* tweet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tweet.json; sourceTree = "<group>"; };
 		B0DDACA51B71169C00CD9A04 /* TweetJSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetJSONParser.swift; sourceTree = "<group>"; };
+		B0DDACA71B726C5E00CD9A04 /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		B0DDACA91B7271F500CD9A04 /* TwitterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,8 @@
 			children = (
 				B00DE0BB1B7003C9007EE9E8 /* Tweet.swift */,
 				B0DDACA51B71169C00CD9A04 /* TweetJSONParser.swift */,
+				B0DDACA71B726C5E00CD9A04 /* LoginService.swift */,
+				B0DDACA91B7271F500CD9A04 /* TwitterService.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -248,8 +254,10 @@
 			files = (
 				B0DDACA61B71169C00CD9A04 /* TweetJSONParser.swift in Sources */,
 				B00DE0BC1B7003C9007EE9E8 /* Tweet.swift in Sources */,
+				B0DDACA81B726C5E00CD9A04 /* LoginService.swift in Sources */,
 				B00DE09E1B7003AF007EE9E8 /* ViewController.swift in Sources */,
 				B00DE09C1B7003AF007EE9E8 /* AppDelegate.swift in Sources */,
+				B0DDACAA1B7271F500CD9A04 /* TwitterService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

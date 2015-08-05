@@ -11,6 +11,6 @@ import Foundation
 struct Tweet {
   let text: String
   let id_str: String
-  let user: [String: AnyObject]
+  let name: String
   let profile_image_url: String
 }

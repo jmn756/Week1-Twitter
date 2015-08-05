@@ -21,9 +21,10 @@ class TweetJSONParser {
           if let text = tweetRecord["text"] as? String,
            id_str = tweetRecord["id_str"] as? String,
           user = tweetRecord["user"] as? [String:AnyObject],
+            name = user["name"] as? String,
             profile_image_url = user["profile_image_url"] as? String
           {
-            let tweet = Tweet(text: text, id_str: id_str, user: user, profile_image_url: profile_image_url)
+            let tweet = Tweet(text: text, id_str: id_str, name: name, profile_image_url: profile_image_url)
               tweets.append(tweet)
           } else {
             println("There is a problem with your data")
