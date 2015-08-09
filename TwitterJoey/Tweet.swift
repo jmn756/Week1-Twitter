@@ -6,11 +6,16 @@
 //  Copyright (c) 2015 Joey Nessif. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Tweet {
   let text: String
   let id_str: String
   let name: String
   let profile_image_url: String
+  var profileImage : UIImage?
+  let retweeted_original_name: String?
+  let retweeted_original_text: String?
+  let quoted_original_name: String?
+  let quoted_original_text: String?
 }
