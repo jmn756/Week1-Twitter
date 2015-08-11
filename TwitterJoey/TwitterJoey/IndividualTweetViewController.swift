@@ -12,14 +12,10 @@ class IndividualTweetViewController: UIViewController {
 
   @IBOutlet weak var tableView: UITableView!
   var tweet: Tweet?
-  var endingUserName: String
+  var endingUserName: String = ""
   
     override func viewDidLoad() {
         super.viewDidLoad()
-
-      if let tweetCell = NSBundle.mainBundle().loadNibNamed("TweetCell", owner: self, options: nil).first as? TweetCell {
-        view.addSubview(tweetCell)
-      }
       
       tableView.registerNib(UINib(nibName: "TweetCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "Tweets")
       

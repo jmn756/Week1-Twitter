@@ -10,21 +10,25 @@ import UIKit
 
 class UserTimelineViewController: UIViewController {
 
+  var username: String!
   
-    var tweet: Tweet?
-    var username: String?
+  @IBOutlet weak var tableView: UITableView!
   
     override func viewDidLoad() {
         super.viewDidLoad()
       
-    TwitterService.getUserTimelineInfo(username!, account: TwitterService.sharedService.account!, completionHandler: { (errorDescription, tweets) -> (Void) in
-       // if let tweets = tweets {
-       //   NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
-       //     self.tweets = tweets
-       //     self.activityIndicator.stopAnimating()
-       //     self.tableView.reloadData()
-        //  }
-      //  }
+      tableView.registerNib(UINib(nibName: "TweetCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "Tweets")
+      
+      self.tableView.dataSource = self
+      
+        TwitterService.getUserTimelineInfo(username!, account: TwitterService.sharedService.account!, completionHandler: { (errorDescription, UserInfo) -> (Void) in
+        if let userInfo = UserInfo {
+           //NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+          
+           //self.activityIndicator.stopAnimating()
+           // self.tableView.reloadData()
+        // }
+       }
         
       })
 
@@ -37,14 +41,23 @@ class UserTimelineViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+extension UserTimelineViewController: UITableViewDataSource {
+  
+  
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 1
+    
+  }
+  
+  func tableView(tableView: UITableView,cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  
+    let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+    
+   return cell
+  }
+
+  
+}
+

@@ -19,14 +19,11 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    if let tweetCell = NSBundle.mainBundle().loadNibNamed("TweetCell", owner: self, options: nil).first as? TweetCell {
-      view.addSubview(tweetCell)
-    }
-    
+
     tableView.registerNib(UINib(nibName: "TweetCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "Tweets")
 
-    self.tableView.estimatedRowHeight = 100
-    self.tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 100
+    tableView.rowHeight = UITableViewAutomaticDimension
     
     
     //Brad Johnson code below

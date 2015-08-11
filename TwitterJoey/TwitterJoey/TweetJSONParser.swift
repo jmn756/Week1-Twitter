@@ -58,5 +58,40 @@ class TweetJSONParser {
     }
     
   }
+  
+  
+  class func userInfoFromJSONData(jsonData : NSData) -> UserInfo? {
+    
+    var error: NSError?
+    var userInfo: UserInfo!
+    
+    if let rootObject = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as? [[String : AnyObject]] {
+      
+      for userEntry in rootObject {
+        
+        if let user = userEntry["user"] as? [String:AnyObject],
+        name = user["name"] as? String,
+        profile_background_image_url = user["profile_background_image_url"] as? String,
+        profile_image_url = user["profile_image_url"] as? String,
+        location = user["location"] as? String
+        {
+          userInfo = UserInfo(name: name, profile_background_image_url: profile_background_image_url,
+            profileBackgroundImage: nil, profile_image_url: profile_image_url,profileImage: nil, location:location)
+          
+        } else {
+          println("There is a problem with your data")
+        }
+      }
+    }
+    
+    if let error = error {
+      println(error.description)
+      return nil
+    } else {
+      return userInfo
+    }
+    
+  }
+  
 }
 
