@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Joey Nessif. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class TweetJSONParser {
   class func tweetsFromJSONData(jsonData : NSData) -> [Tweet]? {
@@ -39,9 +39,11 @@ class TweetJSONParser {
              id_str = tweetRecord["id_str"] as? String,
              user = tweetRecord["user"] as? [String:AnyObject],
              name = user["name"] as? String,
-             profile_image_url = user["profile_image_url"] as? String
+             profile_image_url = user["profile_image_url"] as? String,
+             profile_background_image_url = user["profile_background_image_url"] as? String,
+             location = user["location"] as? String
           {
-            let tweet = Tweet(text: text, id_str: id_str, name: name, profile_image_url: profile_image_url,profileImage: nil, retweeted_original_name: retweeted_original_name,retweeted_original_text: retweeted_original_text,quoted_original_name: quoted_original_name,quoted_original_text: quoted_original_text)
+            let tweet = Tweet(text: text, id_str: id_str, name: name, profile_image_url: profile_image_url,profileImage: nil, retweeted_original_name: retweeted_original_name,retweeted_original_text: retweeted_original_text,quoted_original_name: quoted_original_name,quoted_original_text: quoted_original_text, profile_background_image_url: profile_background_image_url, profileBackgroundImage: nil, location: location)
             
             tweets.append(tweet)
           } else {
@@ -60,38 +62,38 @@ class TweetJSONParser {
   }
   
   
-  class func userInfoFromJSONData(jsonData : NSData) -> UserInfo? {
-    
-    var error: NSError?
-    var userInfo: UserInfo!
-    
-    if let rootObject = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as? [[String : AnyObject]] {
-      
-      for userEntry in rootObject {
-        
-        if let user = userEntry["user"] as? [String:AnyObject],
-        name = user["name"] as? String,
-        profile_background_image_url = user["profile_background_image_url"] as? String,
-        profile_image_url = user["profile_image_url"] as? String,
-        location = user["location"] as? String
-        {
-          userInfo = UserInfo(name: name, profile_background_image_url: profile_background_image_url,
-            profileBackgroundImage: nil, profile_image_url: profile_image_url,profileImage: nil, location:location)
-          
-        } else {
-          println("There is a problem with your data")
-        }
-      }
-    }
-    
-    if let error = error {
-      println(error.description)
-      return nil
-    } else {
-      return userInfo
-    }
-    
-  }
+//  class func userInfoFromJSONData(jsonData : NSData) -> [Tweet]? {
+//    
+//    var error: NSError?
+//    var tweets = [Tweet]()
+//    
+//    if let rootObject = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as? [[String : AnyObject]] {
+//      
+//      for userEntry in rootObject {
+//        
+//        if let user = userEntry["user"] as? [String:AnyObject],
+//        name = user["name"] as? String,
+//        profile_background_image_url = user["profile_background_image_url"] as? String,
+//        profile_image_url = user["profile_image_url"] as? String,
+//        location = user["location"] as? String
+//        {
+//          userInfo = UserInfo(name: name, profile_background_image_url: profile_background_image_url,
+//            profileBackgroundImage: nil, profile_image_url: profile_image_url,profileImage: nil, location:location)
+//          
+//        } else {
+//          println("There is a problem with your data")
+//        }
+//      }
+//    }
+//    
+//    if let error = error {
+//      println(error.description)
+//      return nil
+//    } else {
+//      return tweets
+//    }
+//    
+//  }
   
 }
 

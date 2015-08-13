@@ -18,4 +18,8 @@ struct Tweet {
   let retweeted_original_text: String?
   let quoted_original_name: String?
   let quoted_original_text: String?
+  //specific user info below
+  let profile_background_image_url: String
+  let profileBackgroundImage: UIImage?
+  let location: String
 }

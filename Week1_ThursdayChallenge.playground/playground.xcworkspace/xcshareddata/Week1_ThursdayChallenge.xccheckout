@@ -5,20 +5,20 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>1BC88720-72E2-468A-B8ED-1FAD79063051</string>
+	<string>21B25DBF-47EC-4851-8201-A8210B5ED883</string>
 	<key>IDESourceControlProjectName</key>
-	<string>TwitterJoey</string>
+	<string>Week1_ThursdayChallenge</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>C569AFB6642BEA785FA94E774DC4DFF690516943</key>
 		<string>https://github.com/jmn756/Week1-Twitter.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>TwitterJoey/TwitterJoey.xcodeproj</string>
+	<string>Week1_ThursdayChallenge.playground</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>C569AFB6642BEA785FA94E774DC4DFF690516943</key>
-		<string>../../..</string>
+		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/jmn756/Week1-Twitter.git</string>

@@ -44,21 +44,24 @@ class TwitterService {
     
   }
   
-  class func getUserTimelineInfo(username: String, account : ACAccount, completionHandler : (String?, UserInfo?) -> (Void)) {
+ // class func getUserTimelineInfo(username: String, account : ACAccount, completionHandler : (String?, [Tweet]?) -> (Void)) {
+    
+    
+  class func getUserTimelineInfo(username: String, account: ACAccount, completionHandler : (String?, [Tweet]?) -> (Void)) {
     
     let parameter = ["screen_name": username]
     
     let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.GET, URL: NSURL(string: "https://api.twitter.com/1.1/statuses/user_timeline.json"), parameters: parameter)
+    //request.account = TwitterService.sharedService.account
     request.account = account
-      
     request.performRequestWithHandler { (data, response, error) -> Void in
       if let error = error {
         completionHandler("could not connect to the server", nil)
       } else {
         switch response.statusCode {
         case 200...299:
-          let userInfo = TweetJSONParser.userInfoFromJSONData(data)
-          completionHandler(nil,userInfo)
+          let tweets = TweetJSONParser.tweetsFromJSONData(data)
+          completionHandler(nil,tweets)
         case 400...499:
           completionHandler("this is our fault", nil)
         case 500...599:
