@@ -10,10 +10,15 @@ import UIKit
 
 class UserTimelineViewController: UIViewController {
 
-  var username: String!
+  var screenName: String!
   var tweets = [Tweet]()
   lazy var imageQueue = NSOperationQueue()
   
+
+  @IBOutlet weak var locationLabel: UILabel!
+  @IBOutlet weak var userLabel: UILabel!
+  @IBOutlet weak var headerImage: UIImageView!
+  @IBOutlet weak var headerView: UIView!
   @IBOutlet weak var tableView: UITableView!
   
     override func viewDidLoad() {
@@ -26,7 +31,7 @@ class UserTimelineViewController: UIViewController {
       self.tableView.dataSource = self
       
      // self.activityIndicator.startAnimating()
-      TwitterService.getUserTimelineInfo(username!, account: TwitterService.sharedService.account!, completionHandler: { (errorDescription, tweets) -> (Void) in
+      TwitterService.getUserTimelineInfo(screenName!, account: TwitterService.sharedService.account!, completionHandler: { (errorDescription, tweets) -> (Void) in
             if let tweets = tweets {
                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                  //  self.activityIndicator.stopAnimating()
@@ -63,13 +68,16 @@ extension UserTimelineViewController: UITableViewDataSource {
     
     cell.tweetTextLabel.text = tweets[indexPath.row].text
     cell.usernameLabel.text = tweets[indexPath.row].name
+    userLabel.text = tweets[indexPath.row].name
+    locationLabel.text = tweets[indexPath.row].location 
     cell.tweetImage.image = nil
     
     //Brad Johnson code with some modifications
     if let profileImage = tweets[indexPath.row].profileImage {
       cell.tweetImage.image = profileImage
+      headerImage.image = profileImage
     } else {
-      
+      //Profile Image generation
       imageQueue.addOperationWithBlock({ () -> Void in
         if let imageURL = NSURL(string: self.tweets[indexPath.row].profile_image_url),
           imageData = NSData(contentsOfURL: imageURL),
@@ -90,6 +98,7 @@ extension UserTimelineViewController: UITableViewDataSource {
               self.tweets[indexPath.row].profileImage = resizedImage
               if cell.tag == tag {
                 cell.tweetImage.image = resizedImage
+                self.headerImage.image = resizedImage
               }
             })
         }

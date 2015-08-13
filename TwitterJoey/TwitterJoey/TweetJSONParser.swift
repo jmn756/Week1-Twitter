@@ -20,18 +20,22 @@ class TweetJSONParser {
           
           var retweeted_original_name: String?
           var retweeted_original_text: String?
+          var retweeted_original_screen_name: String?
           var quoted_original_name: String?
           var quoted_original_text: String?
+          var quoted_original_screen_name: String?
           
           if let retweeted_status = tweetRecord["retweeted_status"] as? [String:AnyObject] {
             let retweet_user = retweeted_status["user"] as! [String:AnyObject]
             retweeted_original_name = retweet_user["name"] as? String
             retweeted_original_text = retweeted_status["text"] as? String
+            retweeted_original_screen_name = retweet_user["screen_name"] as? String
           }
           if let quoted_status = tweetRecord["quoted_status"] as? [String:AnyObject] {
             let quoted_user = quoted_status["user"] as! [String:AnyObject]
             quoted_original_name = quoted_user["name"] as? String
             quoted_original_text = quoted_status["text"] as? String
+            quoted_original_screen_name = quoted_user["screen_name"] as? String
           }
 
 
@@ -39,11 +43,16 @@ class TweetJSONParser {
              id_str = tweetRecord["id_str"] as? String,
              user = tweetRecord["user"] as? [String:AnyObject],
              name = user["name"] as? String,
+             screen_name = user["screen_name"] as? String,
              profile_image_url = user["profile_image_url"] as? String,
              profile_background_image_url = user["profile_background_image_url"] as? String,
              location = user["location"] as? String
           {
-            let tweet = Tweet(text: text, id_str: id_str, name: name, profile_image_url: profile_image_url,profileImage: nil, retweeted_original_name: retweeted_original_name,retweeted_original_text: retweeted_original_text,quoted_original_name: quoted_original_name,quoted_original_text: quoted_original_text, profile_background_image_url: profile_background_image_url, profileBackgroundImage: nil, location: location)
+            let tweet = Tweet(text: text, id_str: id_str, name: name, screen_name: screen_name, profile_image_url: profile_image_url,profileImage: nil, retweeted_original_name: retweeted_original_name,retweeted_original_text: retweeted_original_text,
+              retweeted_original_screen_name: retweeted_original_screen_name,
+              quoted_original_name: quoted_original_name,quoted_original_text: quoted_original_text,
+              quoted_original_screen_name: quoted_original_screen_name,
+              profile_background_image_url: profile_background_image_url, profileBackgroundImage: nil, location: location)
             
             tweets.append(tweet)
           } else {

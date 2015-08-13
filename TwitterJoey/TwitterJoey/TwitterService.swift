@@ -47,9 +47,9 @@ class TwitterService {
  // class func getUserTimelineInfo(username: String, account : ACAccount, completionHandler : (String?, [Tweet]?) -> (Void)) {
     
     
-  class func getUserTimelineInfo(username: String, account: ACAccount, completionHandler : (String?, [Tweet]?) -> (Void)) {
+  class func getUserTimelineInfo(screenName: String, account: ACAccount, completionHandler : (String?, [Tweet]?) -> (Void)) {
     
-    let parameter = ["screen_name": username]
+    let parameter = ["screen_name": screenName]
     
     let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.GET, URL: NSURL(string: "https://api.twitter.com/1.1/statuses/user_timeline.json"), parameters: parameter)
     //request.account = TwitterService.sharedService.account

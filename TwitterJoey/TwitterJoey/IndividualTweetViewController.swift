@@ -12,13 +12,15 @@ class IndividualTweetViewController: UIViewController {
 
   @IBOutlet weak var tableView: UITableView!
   var tweet: Tweet?
-  var endingUserName: String = ""
+  var endingScreenName: String?
   
     override func viewDidLoad() {
         super.viewDidLoad()
       
       tableView.registerNib(UINib(nibName: "TweetCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "Tweets")
       
+      tableView.estimatedRowHeight = 100
+      tableView.rowHeight = UITableViewAutomaticDimension
       self.tableView.dataSource = self
       self.tableView.delegate = self
       
@@ -35,7 +37,7 @@ class IndividualTweetViewController: UIViewController {
     if segue.identifier == "ShowUserTimeline" {
       let userTimelineViewController = segue.destinationViewController as! UserTimelineViewController
       userTimelineViewController.navigationItem.title = "User Timeline"
-      userTimelineViewController.username = endingUserName
+      userTimelineViewController.screenName = endingScreenName
     }
   }
 
@@ -54,17 +56,20 @@ extension IndividualTweetViewController: UITableViewDataSource {
     cell.tweetImage.image = tweet!.profileImage
     cell.tweetTextLabel.text = tweet!.text
     cell.usernameLabel.text = tweet!.name
+    endingScreenName = tweet!.screen_name
     
     if let retweetedText = tweet!.retweeted_original_text {
       cell.tweetTextLabel.text = retweetedText
       cell.usernameLabel.text = tweet!.retweeted_original_name
+      endingScreenName = tweet!.retweeted_original_screen_name
     }
     
     if let quotedText = tweet!.quoted_original_text {
       cell.tweetTextLabel.text = quotedText
       cell.usernameLabel.text = tweet!.quoted_original_name
+      endingScreenName = tweet!.quoted_original_screen_name
     }
-    endingUserName = cell.usernameLabel.text!
+    
     
     return cell
   }

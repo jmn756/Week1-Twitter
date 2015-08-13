@@ -24,7 +24,7 @@ class ViewController: UIViewController {
 
     tableView.estimatedRowHeight = 100
     tableView.rowHeight = UITableViewAutomaticDimension
-    self.navigationItem.title = "Home Timeline Tweets"
+    self.navigationItem.title = "Home Timeline"
     
     //Brad Johnson code below
     LoginService.loginForTwitter { (errorDescription, account) -> (Void) in
@@ -73,7 +73,7 @@ override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     let individualTweetViewController = segue.destinationViewController as! IndividualTweetViewController
     var selectedIndexPath = self.tableView.indexPathForSelectedRow()
     var selectedTweet = self.tweets[selectedIndexPath!.row]
-    individualTweetViewController.navigationItem.title = "Individual Tweet"
+    individualTweetViewController.navigationItem.title = "Selected Tweet"
     individualTweetViewController.tweet = selectedTweet
   }
 }

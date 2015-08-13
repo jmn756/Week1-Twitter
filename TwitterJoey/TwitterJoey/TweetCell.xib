@@ -15,6 +15,9 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HrM-b6-FC0">
                         <rect key="frame" x="96" y="10" width="67.5" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="Ha6-GN-wRV"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -26,15 +29,17 @@
                             <constraint firstAttribute="height" constant="80" id="ZYr-S1-zte"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMb-qv-Nah">
-                        <rect key="frame" x="96" y="35" width="503" height="48.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.45000000000000001" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PMb-qv-Nah">
+                        <rect key="frame" x="96" y="35" width="481" height="48.5"/>
+                        <string key="text">Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
+The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in &lt;UIKit/UIView.h&gt; may also b</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="PMb-qv-Nah" secondAttribute="trailing" constant="-7" id="5pm-ud-tbl"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="PMb-qv-Nah" secondAttribute="trailing" constant="15" id="5pm-ud-tbl"/>
                     <constraint firstAttribute="bottomMargin" secondItem="PMb-qv-Nah" secondAttribute="bottom" constant="8" id="7qx-j2-Fob"/>
                     <constraint firstItem="wPq-7S-5Jg" firstAttribute="leading" secondItem="9JY-dA-5yM" secondAttribute="leadingMargin" constant="-7" id="9hx-5R-0Nv"/>
                     <constraint firstItem="PMb-qv-Nah" firstAttribute="top" secondItem="HrM-b6-FC0" secondAttribute="bottom" constant="8" id="HUP-xd-E79"/>
